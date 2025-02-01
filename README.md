@@ -11,6 +11,3 @@ Please create your mamba environment using the code below:
 mamba env create -f environment.yaml
 mamba activate torch
 ```
-
-
-
