@@ -1,0 +1,26 @@
+name: torch
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python==3.10
+  - ipykernel
+  - notebook
+  - opencv
+  - pip
+  - pip:
+    - numpy
+    - pandas
+    - scikit-learn
+    - rasterio
+    - loguru
+    - ensure
+    - pathlib
+    - dataclasses
+    - tqdm
+    - matplotlib
+    - black[jupyter]
+    - joblib
+    - seaborn
+    - pyYAML
+    - python-box
