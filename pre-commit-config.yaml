@@ -7,9 +7,9 @@ repos:
       - id: debug-statements
       - id: detect-private-key
       - id: end-of-file-fixer
-      # - id: no-commit-to-branch
-      #   args:
-      #     - --pattern=master|main
+      - id: no-commit-to-branch
+        args:
+          - --pattern=master|main
       - id: requirements-txt-fixer
       - id: trailing-whitespace
   - repo: https://github.com/myint/autoflake
@@ -44,4 +44,3 @@ repos:
         args:
           - --line-length=140
           - Basics
-          - tests
