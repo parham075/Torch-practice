@@ -1,0 +1,76 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cfar10"
+dynamic = ["version"]
+description = ''
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "pmembari", email = "p.membari96@gmail.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = []
+
+[project.urls]
+Documentation = "https://github.com/pmembari/cfar10#readme"
+Issues = "https://github.com/pmembari/cfar10/issues"
+Source = "https://github.com/pmembari/cfar10"
+
+[tool.hatch.version]
+path = "src/cfar10/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/cfar10 tests}"
+
+[tool.coverage.run]
+source_pkgs = ["cfar10", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/cfar10/__about__.py",
+]
+[tool.hatch.envs.default]
+path = "/code/envs/env_cfar"
+
+[tool.hatch.envs.prod]
+path = "/code/envs/env_cfar"
+dependencies = [
+    "click",
+    "torch",
+    "torchvision",
+    "loguru",
+    "numpy",
+    "scikit-learn",
+    "tqdm",
+    "matplotlib",
+    
+]
+[tool.coverage.paths]
+cfar10 = ["src/cfar10", "*/cfar10/src/cfar10"]
+tests = ["tests", "*/cfar10/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
